@@ -113,16 +113,16 @@ boolean Plugin_083(byte function, const char *string)
          switch (command)
          {
          case DOOYA_UP_COMMAND:
-            commandstring = PSTR("CMD=UP");
+            commandstring = (char *)PSTR("CMD=UP");
             break;
          case DOOYA_DOWN_COMMAND:
-            commandstring = PSTR("CMD=DOWN");
+            commandstring = (char *)PSTR("CMD=DOWN");
             break;
          case DOOYA_STOP_COMMAND:
-            commandstring = PSTR("CMD=STOP");
+            commandstring = (char *)PSTR("CMD=STOP");
             break;
          case DOOYA_SETUP_COMMAND:
-            commandstring = PSTR("CMD=SETUP");
+            commandstring = (char *)PSTR("CMD=SETUP");
             break;
          default :
             return false;
