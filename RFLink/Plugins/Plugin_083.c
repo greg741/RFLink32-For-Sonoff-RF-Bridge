@@ -1,9 +1,9 @@
 //#######################################################################################################
 //##                    This Plugin is only for use with the RFLink software package                   ##
-//##                                     Plugin-083: Brel Motor                                            ##
+//##                                     Plugin-083: Brel Motor                                        ##
 //#######################################################################################################
 /*********************************************************************************************\
- * This plugin takes care of decoding and encoding the Brel Motor / Dooya protocol (DC318/DC114)
+ * This plugin takes care of decoding and encoding the Brel Motor / Dooya protocol (DC318/DC114/DC1671)
  * 
  * Author  (present)  : Sebastien LANGE
  * Support (present)  : https://github.com/basty149/RFLink 
