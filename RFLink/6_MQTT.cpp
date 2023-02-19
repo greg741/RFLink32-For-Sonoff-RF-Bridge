@@ -326,8 +326,8 @@ void publishMsg()
 
   if (!MQTTClient.connected())
     reconnect(1);
-  
-#ifdef OHMQTT
+
+#ifdef OHMQTT     ; OH MQTT support
   char *array[64];
   String _topic;
   String _protocol;
