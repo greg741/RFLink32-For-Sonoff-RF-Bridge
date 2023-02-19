@@ -326,7 +326,36 @@ void publishMsg()
 
   if (!MQTTClient.connected())
     reconnect(1);
+  
+#ifdef OHMQTT
+  char *array[64];
+  String _topic;
+  String _protocol;
+  String _id;
+  String _sw;
+  String _cmd;
+  int i = 0;
+
+  array[i] = strtok(pbuffer, ";=");
+
+  while(array[i] != NULL)
+    array[++i] = strtok(NULL, ";=");
+
+  _protocol = array[2];
+  _id = array[4];
+  _sw = array[6];
+  _cmd = array[8];
+
+  //sprintf(_buf,"%s/%s/%s/%s/%s/cmd",params::topic_out.c_str(), _protocol.c_str(), _id.c_str(), _sw.c_str());
+  _topic = params::topic_out + "/" + _protocol + "/" + _id + "/" + _sw + "/cmd";
+  sprintf(pbuffer,"%s",_cmd.c_str());
+  Serial.println(_topic.c_str());  
+  Serial.println(pbuffer);
+  MQTTClient.publish(_topic.c_str(), pbuffer, MQTT_RETAINED);
+#else
   MQTTClient.publish(params::topic_out.c_str(), pbuffer, MQTT_RETAINED);
+#endif
+
 }
 
 void checkMQTTloop()
